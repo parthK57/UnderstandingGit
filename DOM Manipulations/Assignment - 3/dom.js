@@ -2,7 +2,8 @@ const title = document.querySelector("#main-header");
 const addItem = document.querySelector(".title");
 
 title.style.borderBottom = "3px solid black";
-const li = document.getElementsByClassName("list-group-item");
-li[2].style.background = "green";
+const liClassName = document.getElementsByClassName("new-list-group-item"); 
+const li = document.getElementsByTagName("li");
 
-for(let i = 0; i < li.length; i++) li[i].style.fontWeight = "bold";
+liClassName[0].style.fontWeight = "100";
+li[4].style.color = "yellow";
