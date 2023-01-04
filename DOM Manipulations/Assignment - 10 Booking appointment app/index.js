@@ -2,6 +2,7 @@ const name = document.querySelector("#input-name");
 const email = document.querySelector("#input-email");
 const submitBtn = document.querySelector("input[type='submit']");
 let deleteBtnG = document.querySelectorAll(".delete-btn");
+let updateUserG = document.querySelectorAll(".update-btn");
 
 // count logic
 let count = localStorage.getItem("count");
@@ -33,15 +34,23 @@ function display() {
       // document creation
       const formContainerDiv = document.querySelector(".form-container");
       const newDiv = document.createElement("div");
+      const btnContainer = document.createElement("div");
+      btnContainer.className = "button-container";
       const deleteBtn = document.createElement("button");
+      const updateBtn = document.createElement("button");
+      updateBtn.className = "update-btn";
+      updateBtn.innerHTML = "Update";
       deleteBtn.className = "delete-btn";
       newDiv.className = "display-users";
       deleteBtn.innerHTML = `Delete`;
       const text = `Name:${userName} <span></span> Email:${userEmail}`;
       newDiv.innerHTML = text;
-      newDiv.appendChild(deleteBtn);
+      btnContainer.appendChild(updateBtn);
+      btnContainer.appendChild(deleteBtn);
+      newDiv.appendChild(btnContainer);
       formContainerDiv.appendChild(newDiv);
       deleteBtnG = document.querySelectorAll(".delete-btn");
+      updateUserG = document.querySelectorAll(".update-btn");
     }
   }
 }
@@ -51,19 +60,27 @@ function updateDisplay(name, email) {
   // document creation
   const formContainerDiv = document.querySelector(".form-container");
   const newDiv = document.createElement("div");
+  const btnContainer = document.createElement("div");
+  btnContainer.className = "button-container";
   const deleteBtn = document.createElement("button");
   deleteBtn.className = "delete-btn";
   deleteBtn.innerHTML = `Delete`;
+  const updateBtn = document.createElement("button");
+  updateBtn.className = "update-btn";
+  updateBtn.innerHTML = "Update";
   const text = `Name:${name.value} <span></span> Email:${email.value}`;
   newDiv.innerHTML = text;
   newDiv.className = "display-users";
-  newDiv.appendChild(deleteBtn);
+  btnContainer.appendChild(updateBtn);
+  btnContainer.appendChild(deleteBtn);
+  newDiv.appendChild(btnContainer);
   formContainerDiv.appendChild(newDiv);
   deleteBtnG = document.querySelectorAll(".delete-btn");
+  updateUserG = document.querySelectorAll(".update-btn");
   for (let i = 0; i < deleteBtnG.length; i++) {
     deleteBtnG[i].addEventListener("click", deleteUser);
     function deleteUser() {
-      const parentElement = deleteBtnG[i].parentElement;
+      const parentElement = deleteBtnG[i].parentElement.parentElement;
       parentElement.remove();
       localStorage.removeItem(`${i}`);
     }
@@ -76,8 +93,54 @@ deleteBtnG = document.querySelectorAll(".delete-btn");
 for (let i = 0; i < deleteBtnG.length; i++) {
   deleteBtnG[i].addEventListener("click", deleteUser);
   function deleteUser() {
-    const parentElement = deleteBtnG[i].parentElement;
+    const parentElement = deleteBtnG[i].parentElement.parentElement;
     parentElement.remove();
     localStorage.removeItem(`${i}`);
   }
 }
+
+// update an user
+updateUserG = document.querySelectorAll(".update-btn");
+
+// for (let i = 0; i < updateUserG.length; i++) {
+//   updateUserG[i].addEventListener("click", updateUser);
+//   const bigPapa = updateUserG[i].parentElement.parentElement;
+//   // const olderUserName = updateUserG[i].parentElement.parentElement.
+//   function updateUser() {
+//     const modal = document.createElement("div");
+
+//     // Name label & input
+//     const nameLabel = document.createElement("label");
+//     const nameInput = document.createElement("input");
+//     nameLabel.className = "modal-label";
+//     nameLabel.innerHTML = "Name:";
+
+//     // Email label
+//     const emailLabel = document.createElement("label");
+//     const emailInput = document.createElement("input");
+//     emailLabel.className = "modal-label";
+//     emailLabel.innerHTML = "Email:";
+
+//     // Submit button
+//     const submitBtn = document.createElement("button");
+//     submitBtn.className = "submit-btn";
+//     submitBtn.innerHTML = "Submit";
+//     submitBtn.addEventListener("click", closeModal);
+//     function closeModal() {
+//       // Local Storage Logic
+//       localStorage.setItem(`${i}`, `${nameInput.value}-${emailInput.value}`);
+//       bigPapa.remove();
+//       modal.remove();
+//     }
+
+//     // Lexicographical addition of elements
+//     modal.appendChild(nameLabel);
+//     modal.appendChild(nameInput);
+//     modal.appendChild(emailLabel);
+//     modal.appendChild(emailInput);
+//     modal.appendChild(submitBtn);
+//     modal.className = "modal";
+//     const body = document.querySelector("body");
+//     body.appendChild(modal);
+//   }
+// }
