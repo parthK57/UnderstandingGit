@@ -139,6 +139,14 @@ label {
   border-radius: 10px;
 }
 
+.modal-title{
+  font-weight: 400;
+  border-bottom: 2px solid green;
+  text-align: center;
+  font-size: 25px;
+  color:rgb(252, 159, 88);
+}
+
 .modal-label{
   color:rgb(252, 159, 88);
   margin-top: 10px;
