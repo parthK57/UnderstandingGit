@@ -1,20 +1,10 @@
-setTimeout(() => console.log('timer1 expired'), 1000)
-
-
-setTimeout(() => console.log('timer2 expired'), 0)
-
-
-function x(y) {
-
-console.log('inside x');
-
-y();
-
+let iterator = 0;
+let flag = true;
+while (flag) {
+  if (localStorage.getItem(`${iterator}`) == value) {
+    localStorage.setItem(
+      `${iterator}`,
+      `${}-${descriptionInput.value}-${amountInput.value}`
+    );
+  }
 }
-
-
-x(function y(){
-
-setTimeout(() => console.log('inside y'), 0)
-
-})
