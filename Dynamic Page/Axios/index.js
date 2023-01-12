@@ -11,7 +11,7 @@ function submit(e) {
 
   axios({
     method: "post",
-    url: "https://crudcrud.com/api/1d199ef44a93410ea7dd7b7f5e501fb1/appointmentData",
+    url: "https://crudcrud.com/api/be580ea7389d4d348eadeadc9628356c/appointmentData",
     data: {
       name: name,
       email: email,
@@ -157,7 +157,7 @@ function display(res) {
 
       axios({
         method: "put",
-        url: `https://crudcrud.com/api/1d199ef44a93410ea7dd7b7f5e501fb1/appointmentData/${id}`,
+        url: `https://crudcrud.com/api/be580ea7389d4d348eadeadc9628356c/appointmentData/${id}`,
         data: {
           name: `${name}`,
           email: `${email}`,
@@ -177,7 +177,7 @@ function display(res) {
   function deleteF() {
     axios({
       method: "delete",
-      url: `https://crudcrud.com/api/1d199ef44a93410ea7dd7b7f5e501fb1/appointmentData/${id}`,
+      url: `https://crudcrud.com/api/be580ea7389d4d348eadeadc9628356c/appointmentData/${id}`,
     }).then(() => {
       card.remove();
     });
@@ -312,7 +312,7 @@ function updateDisplay(name, email, phoneNumber, id) {
 
       axios({
         method: "put",
-        url: `https://crudcrud.com/api/1d199ef44a93410ea7dd7b7f5e501fb1/appointmentData/${id}`,
+        url: `https://crudcrud.com/api/be580ea7389d4d348eadeadc9628356c/appointmentData/${id}`,
         data: {
           name: `${name}`,
           email: `${email}`,
@@ -320,8 +320,8 @@ function updateDisplay(name, email, phoneNumber, id) {
         },
       })
         .then(() => {
-          updateDisplay(name, email, phoneNumber, id);
           card.remove();
+          updateDisplay(name, email, phoneNumber, id);
         })
         .catch((err) => console.log(err));
     }
@@ -332,7 +332,7 @@ function updateDisplay(name, email, phoneNumber, id) {
   function deleteF() {
     axios({
       method: "delete",
-      url: `https://crudcrud.com/api/1d199ef44a93410ea7dd7b7f5e501fb1/appointmentData/${id}`,
+      url: `https://crudcrud.com/api/be580ea7389d4d348eadeadc9628356c/appointmentData/${id}`,
     }).then(() => {
       card.remove();
     });
@@ -340,22 +340,28 @@ function updateDisplay(name, email, phoneNumber, id) {
 }
 
 // // getting preloaded data
-// function run() {
-//   console.log("first");
-//   axios({
-//     method: "get",
-//     url: "https://crudcrud.com/api/1d199ef44a93410ea7dd7b7f5e501fb1/appointmentData",
-//   })
-//     .then((res) => {
-//       preLoadData(res);
-//     })
-//     .catch((err) => console.log(err));
-// }
-// // run();
+function run() {
+  console.log("first");
+  axios({
+    method: "get",
+    url: "https://crudcrud.com/api/be580ea7389d4d348eadeadc9628356c/appointmentData",
+  })
+    .then((res) => {
+      //   console.log(res.data);
+      preLoadData(res);
+    })
+    .catch((err) => console.log(err));
+}
+run();
 
-// function preLoadData(res) {
-//   const rawData = res;
-//   for (let i = 0; i < rawData.length; i++) {
-//     display(rawData[i]);
-//   }
-// }
+function preLoadData(res) {
+  const rawData = res.data;
+  for (let i = 0; i < rawData.length; i++) {
+    updateDisplay(
+      rawData[i].name,
+      rawData[i].email,
+      rawData[i].phoneNumber,
+      rawData[i]._id
+    );
+  }
+}
