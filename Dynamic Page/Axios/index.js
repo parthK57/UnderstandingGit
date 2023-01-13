@@ -11,7 +11,7 @@ function submit(e) {
 
   axios({
     method: "post",
-    url: "https://crudcrud.com/api/be580ea7389d4d348eadeadc9628356c/appointmentData",
+    url: "https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/appointmentData",
     data: {
       name: name,
       email: email,
@@ -352,7 +352,7 @@ function run() {
     })
     .catch((err) => console.log(err));
 }
-run();
+// run();
 
 function preLoadData(res) {
   const rawData = res.data;
