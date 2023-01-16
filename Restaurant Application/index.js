@@ -9,7 +9,7 @@ function addItem(e) {
 
   axios({
     method: "post",
-    url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/${table}`,
+    url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/${table}`,
     data: {
       name: `${name}`,
       price: `${price}`,
@@ -61,7 +61,7 @@ function display(res) {
     function deleteF() {
       axios({
         method: "delete",
-        url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/${table}/${id}`,
+        url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/${table}/${id}`,
       })
         .then(() => table1Container.removeChild(card))
         .catch((err) => console.log(err));
@@ -100,7 +100,7 @@ function display(res) {
     function deleteF() {
       axios({
         method: "delete",
-        url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/${table}/${id}`,
+        url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/${table}/${id}`,
       })
         .then(() => table2Container.removeChild(card))
         .catch((err) => console.log(err));
@@ -139,7 +139,7 @@ function display(res) {
     function deleteF() {
       axios({
         method: "delete",
-        url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/${table}/${id}`,
+        url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/${table}/${id}`,
       })
         .then(() => table3Container.removeChild(card))
         .catch((err) => console.log(err));
@@ -150,7 +150,7 @@ function display(res) {
 function run() {
   axios({
     method: "get",
-    url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/Table1`,
+    url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/Table1`,
   })
     .then((res) => {
       const rawData = res.data;
@@ -167,7 +167,7 @@ function run() {
 
   axios({
     method: "get",
-    url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/Table2`,
+    url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/Table2`,
   })
     .then((res) => {
       const rawData = res.data;
@@ -183,7 +183,7 @@ function run() {
     .catch((err) => console.log(err));
   axios({
     method: "get",
-    url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/Table3`,
+    url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/Table3`,
   })
     .then((res) => {
       const rawData = res.data;
@@ -235,7 +235,7 @@ function preload(name, price, table, id) {
     function deleteF() {
       axios({
         method: "delete",
-        url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/${table}/${id}`,
+        url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/${table}/${id}`,
       })
         .then(() => table1Container.removeChild(card))
         .catch((err) => console.log(err));
@@ -274,7 +274,7 @@ function preload(name, price, table, id) {
     function deleteF() {
       axios({
         method: "delete",
-        url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/${table}/${id}`,
+        url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/${table}/${id}`,
       })
         .then(() => table2Container.removeChild(card))
         .catch((err) => console.log(err));
@@ -313,7 +313,7 @@ function preload(name, price, table, id) {
     function deleteF() {
       axios({
         method: "delete",
-        url: `https://crudcrud.com/api/53a5190081bf4d869f71d15bfeda4334/${table}/${id}`,
+        url: `https://crudcrud.com/api/533198e81da64cffa9a9ffb4bf464dd5/${table}/${id}`,
       })
         .then(() => table3Container.removeChild(card))
         .catch((err) => console.log(err));
